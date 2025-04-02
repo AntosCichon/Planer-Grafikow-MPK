@@ -1,3 +1,9 @@
+<?php
+
+header("Location: /admin.php#podsumowanie");
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>

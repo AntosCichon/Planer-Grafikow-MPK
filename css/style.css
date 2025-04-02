@@ -7,3 +7,32 @@
     vertical-align: baseline;
     box-sizing: border-box;
 }
+
+nav {
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #7766dd;
+}
+
+section {
+    width: calc(100vw - 400px);
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.view-wrapper {
+
+}
+
+#view {
+
+}
+
+.view-inner {
+
+}
