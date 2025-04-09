@@ -2,12 +2,13 @@
     <h1>Sekcja kierowcy</h1>
 </div>
 
+
 <input type="number" id="driver-id" placeholder="Enter driver ID">
 <button id="load-driver">Load Driver</button>
 <pre id="driver-result"></pre>
 
 
-
+# as i understand you take over from here, so this it just a demo (btw what language may be used for comment)
 <script>
 document.getElementById("load-driver").addEventListener("click", function () {
     const id = document.getElementById("driver-id").value.trim();
@@ -37,5 +38,3 @@ document.getElementById("load-driver").addEventListener("click", function () {
     });
 });
 </script>
-
-
