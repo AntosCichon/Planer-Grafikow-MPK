@@ -2,24 +2,40 @@
     <h1>Sekcja kierowcy</h1>
 </div>
 
+<input type="number" id="driver-id" placeholder="Enter driver ID">
 <button id="load-driver">Load Driver</button>
 <pre id="driver-result"></pre>
 
+
+
 <script>
 document.getElementById("load-driver").addEventListener("click", function () {
-    fetch('includes/get_drivers_endpoint.php', {
-        method: 'POST',
+    const id = document.getElementById("driver-id").value.trim();
+
+    if (!id) {
+        alert("Enter a valid driver ID");
+        return;
+    }
+
+    const bodyData = new URLSearchParams();
+    bodyData.append("submit", "true"); 
+    bodyData.append("id", id);
+
+    fetch("includes/get_drivers_endpoint.php", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: 'submit=true'
+        body: bodyData
     })
-    .then(response => response.text()) // ⬅️ parse as plain text instead of JSON
+    .then(response => response.text())
     .then(data => {
         document.getElementById("driver-result").textContent = data;
     })
     .catch(err => {
-        document.getElementById("driver-result").textContent = 'Error: ' + err;
+        document.getElementById("driver-result").textContent = "Error: " + err;
     });
 });
 </script>
+
+

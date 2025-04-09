@@ -2,6 +2,8 @@
 
 if (!isset($_POST['submit'])) {
     header("Location: /index.php");
+    echo "exited";
+    exit;
 }
 
 function connect_db(){
@@ -23,4 +25,11 @@ function connect_db(){
         echo json_encode(["error" => "Database connection failed", "details" => $e->getMessage()]);
         exit;
     }
+}
+
+function get_driver_by_id($id) {
+    $pdo = connect_db();
+    $stmt = $pdo->prepare("SELECT * FROM testkerowcy1 WHERE ID = ?");
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }

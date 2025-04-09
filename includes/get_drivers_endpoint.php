@@ -2,23 +2,30 @@
 
 if (!isset($_POST['submit'])) {
     header("Location: /index.php");
+    echo "exited";
     exit;
 }
 
 require_once("functions.php");
 
-$pdo = connect_db(); # connecting to the data base
 
-$stmt = $pdo->prepare("SELECT * FROM testkerowcy1 WHERE ID = 2");
-$stmt->execute();
+$id = $_POST['id'] ?? null;
+echo "got id " . $id . "\n";
+if (!$id || !is_numeric($id)) {
+    echo "Invalid or missing driver ID.";
+    exit;
+}
 
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($result) {
-    echo "ID: " . $result['ID'] . "\n";
-    echo "Name: " . $result['Name'] . "\n";
-    echo "Surname: " . $result['Surname'] . "\n"; 
-    echo "Height: " . $result['height'] . "\n";
+ # retruns array representing 1 entrance of the table, accessed by the key
+$driver = get_driver_by_id($id); 
+
+# this is just to check whether is it working or not, can be deleted
+if ($driver) {
+    echo "ID: " . $driver['ID'] . "\n";
+    echo "Name: " . $driver['Name'] . "\n";
+    echo "Surname: " . $driver['Surname'] . "\n";
+    echo "Height: " . $driver['height'] . "\n";
 } else {
-    echo "No driver found.";
+    echo "no driver found.";
 }
