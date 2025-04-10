@@ -22,10 +22,10 @@ $driver = get_driver_by_id($id);
 
 # this is just to check whether is it working or not, can be deleted
 if ($driver) {
-    echo "ID: " . $driver['ID'] . "\n";
-    echo "Name: " . $driver['Name'] . "\n";
-    echo "Surname: " . $driver['Surname'] . "\n";
-    echo "Height: " . $driver['height'] . "\n";
+    echo "id: " . $driver['id'] . "\n";
+    echo "name: " . $driver['name'] . "\n";
+    echo "surname: " . $driver['surname'] . "\n";
+    echo "sex: " . $driver['sex'] . "\n";
 } else {
     echo "no driver found.";
 }

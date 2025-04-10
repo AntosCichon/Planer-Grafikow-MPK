@@ -19,7 +19,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: pass
     volumes:
-      - dbdata:/var/lib/mysql
+      - ./mariadb_data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

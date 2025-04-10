@@ -5,7 +5,7 @@ if (!isset($_POST['submit'])) {
     echo "exited";
     exit;
 }
-
+# this is a function which connects to the database 
 function connect_db(){
     $host = 'db';
     $dbname = 'planer';
@@ -29,7 +29,8 @@ function connect_db(){
 
 function get_driver_by_id($id) {
     $pdo = connect_db();
-    $stmt = $pdo->prepare("SELECT * FROM testkerowcy1 WHERE ID = ?");
+    $stmt = $pdo->prepare("SELECT * FROM test WHERE ID = ?");
     $stmt->execute([$id]);
+    $pdo = null; # "disconnect" from db, not really necessary, but it's kinda a good practice do do it.
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
