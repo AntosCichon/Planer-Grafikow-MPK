@@ -13,6 +13,8 @@ services:
   db:
     image: mariadb:latest
     restart: always
+    ports:
+      - "3306:3306" #port forwarding to be able to connect to the mariadb in console, maybe ditch phpmyadmin
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: planer
